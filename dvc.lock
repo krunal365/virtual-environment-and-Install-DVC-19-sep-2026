@@ -1,0 +1,36 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python model/train_model.py
+    deps:
+    - path: model/products.csv
+      hash: md5
+      md5: dd46297443d9a34d01653deeb3e6e87d
+      size: 709
+      isexec: true
+    - path: model/train_model.py
+      hash: md5
+      md5: 33f78fe70b760c78931f208a1f32fa32
+      size: 5362
+      isexec: true
+    params:
+      params.yaml:
+        model.metric: cosine
+        model.n_neighbors: 4
+        model.top_k: 3
+    outs:
+    - path: model/metrics.json
+      hash: md5
+      md5: 0ff9a2767d541e474734aed3f1e34790
+      size: 157
+      isexec: true
+    - path: model/model_metadata.json
+      hash: md5
+      md5: 93ce7859ecee1725dc8d149d1a182177
+      size: 462
+      isexec: true
+    - path: model/recommendation_model.pkl
+      hash: md5
+      md5: 869c1067ff844b8d20ec96f9083901d8
+      size: 5964
+      isexec: true
